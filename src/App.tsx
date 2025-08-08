@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react'
 import { TarotCard } from './components/TaroCard'
+import { nl2br } from './lib/utils'
+import { questions } from './lib/question'
 
 const GameState = {
   INITIAL: 'initial',
@@ -10,28 +12,8 @@ const GameState = {
 
 type GameStateType = typeof GameState[keyof typeof GameState]
 
-const questions = [
-  "가장 기억에 남는 여행지는 어디인가요?",
-  "어릴 때 꿈꿨던 직업은 무엇이었나요?",
-  "가장 좋아하는 음식과 그 이유는?",
-  "스트레스를 받을 때 어떻게 해소하나요?",
-  "가장 소중한 추억은 무엇인가요?",
-  "10년 후 자신의 모습을 상상해보세요",
-  "가장 감동받았던 영화나 책은?",
-  "친구들과 함께 하고 싶은 활동은?",
-  "가장 자랑스러운 순간은 언제였나요?",
-  "새로운 취미를 시작한다면 무엇을 해보고 싶나요?",
-  "가장 무서웠던 경험은 무엇인가요?",
-  "완벽한 하루를 보낸다면 어떻게 보내고 싶나요?",
-  "가장 존경하는 사람과 그 이유는?",
-  "어떤 초능력을 갖고 싶나요?",
-  "가장 후회하는 일이 있다면?",
-  "행복한 순간은 언제인가요?",
-  "가장 좋아하는 계절과 이유는?",
-  "어떤 동물과 가장 닮았다고 생각하나요?",
-  "가장 듣고 싶은 말은 무엇인가요?",
-  "인생에서 가장 중요한 가치는 무엇인가요?"
-]
+
+
 
 export default function TarotQuestionApp() {
   const [gameState, setGameState] = useState<GameStateType>(GameState.INITIAL)
@@ -146,10 +128,10 @@ export default function TarotQuestionApp() {
         {/* 제목 */}
         <div className="text-center mb-8 md:mb-12">
           {gameState === GameState.INITIAL && (
-            <h1 className="text-xl md:text-2xl font-bold mb-4 px-4">카드를 뽑아보세요</h1>
+            <h1 className="text-2xl font-bold mb-4 px-4">카드를 뽑아보세요</h1>
           )}
           {gameState === GameState.REVEALED && (
-            <h1 className="text-xl md:text-2xl font-bold mb-4 px-4">{selectedQuestion}</h1>
+            <h1 className="text-2xl font-bold mb-4 px-4 break-keep">{nl2br(selectedQuestion)}</h1>
           )}
         </div>
         
@@ -163,21 +145,18 @@ export default function TarotQuestionApp() {
           {gameState === GameState.INITIAL && (
             <button
               onClick={startSpinning}
-              className="w-full py-4 bg-gradient-to-r from-green-300 via-blue-500 to-indigo-400 text-white rounded-full text-lg font-semibold shadow-lg transition-all transform hover:scale-105 active:scale-95"
+              className="w-full py-3 bg-gradient-to-r from-green-300 via-blue-500 to-indigo-400 text-white rounded-full text-lg font-semibold transition-all transform hover:scale-105 active:scale-95"
             >
               질문 뽑기
             </button>
           )}
-          
           {gameState === GameState.REVEALED && (
-            <div className="space-y-3">
               <button
                 onClick={handleReset}
-                className="w-full py-3 bg-gray-900 text-white rounded-full text-sm font-medium transition-colors border border-indigo-300"
+                className="w-full py-3 bg-gray-900 text-white rounded-full text-lg font-semibold transition-colors border border-indigo-300"
               >
                 다시 뽑기
               </button>
-            </div>
           )}
         </div>
       </div>
