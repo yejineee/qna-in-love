@@ -1,0 +1,59 @@
+---
+description: Product Description
+globs:
+alwaysApply: false
+---
+
+<product-overview>
+- 목표: 랜덤한 질문을 뽑아서 사람들 사이에 대화를 시작하게 해줌
+- 여러 질문들 중에서 랜덤한 질문 하나가 선택되어 사용자에게 보여줌
+</product-overview>
+
+<references>
+https://wheelofnames.com/
+</references>
+
+<must-features>
+- - '질문 뽑기' 버튼을 누르면, 카드들이 돌기 시작하고 서서히 멈춤. 그 중 가운데에 있는 카드가 선택되고, 사용자에게 카드가 보여짐.
+</must-features>
+
+<target-user-persona>
+- 사용자 연령: 10대~20대
+</target-user-persona>
+
+<target-platforms>
+- web
+</target-platforms>
+
+<storage-type>
+local(no-database)
+</storage-type>
+
+<tech-stack>
+Typescript, React, Tailwind CSS, Vite
+</tech-stack>
+
+PRD must include the following contents:
+
+<table-of-contents>
+- Detailed product description
+- Reference Services with detailed rationale
+- Core features and specifications
+- Suggested additional features
+- User persona and scenarios
+- Technical stack recommendations
+</table-of-contents>
+
+<response-format>
+Use markdown format
+</response-format>
+
+<guidelines>
+- Use tables or lists where appropriate to organize information systematically.
+- All user interactions, including inputs and outputs, must be in Korean.
+- Provide accurate answers with reliable references
+- Write in Korean
+- Clearly separate each section
+- Collect additional reference services and provide detailed rationale
+- Do not include detailed data structure and storage design
+</guidelines>
