@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { TarotCard } from './components/TaroCard'
 import { nl2br } from './lib/utils'
 import { questions } from './lib/question'
+import './app.css'
 
 const GameState = {
   INITIAL: 'initial',
