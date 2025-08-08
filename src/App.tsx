@@ -46,6 +46,13 @@ export default function TarotQuestionApp() {
     setCardRotations(initialRotations)
   }, [])
 
+    const handleCardSelect = (currentState: GameStateType) => {
+    if (currentState === GameState.SELECTED) {
+      setGameState(GameState.REVEALED)
+    }
+  }
+
+
   const startSpinning = () => {
     if (gameState !== GameState.INITIAL) return
     
@@ -72,20 +79,19 @@ export default function TarotQuestionApp() {
             setSelectedIndex(3) // 중앙 카드 선택
             setSelectedQuestion(randomQuestion)
             setGameState(GameState.SELECTED)
-          }, 500)
+
+            setTimeout(() => {
+              handleCardSelect(GameState.SELECTED)
+            }, 1000)
+          }, 50)
           
           return 0
         }
         return newSpeed
       })
-    }, 100)
+    }, 10)
   }
 
-  const handleCardSelect = () => {
-    if (gameState === GameState.SELECTED) {
-      setGameState(GameState.REVEALED)
-    }
-  }
 
   const handleReset = () => {
     setGameState(GameState.INITIAL)
@@ -123,7 +129,6 @@ export default function TarotQuestionApp() {
             transform: `translate(-50%, -50%) rotate(${rotation * 0.3}deg)`,
             zIndex: selectedIndex === i ? 30 : 10 - Math.abs(i - 3)
           }}
-          onClick={gameState === GameState.SELECTED ? handleCardSelect : undefined}
         />
       )
     }
@@ -141,13 +146,7 @@ export default function TarotQuestionApp() {
         {/* 제목 */}
         <div className="text-center mb-8 md:mb-12">
           {gameState === GameState.INITIAL && (
-            <h1 className="text-xl md:text-2xl font-bold mb-4 px-4">카드를 터치하여 뽑아보세요</h1>
-          )}
-          {gameState === GameState.SPINNING && (
-            <h1 className="text-xl md:text-2xl font-bold mb-4 px-4">카드를 섞고 있습니다...</h1>
-          )}
-          {gameState === GameState.SELECTED && (
-            <h1 className="text-xl md:text-2xl font-bold mb-4 px-4">카드를 선택하려면 한 번 더 터치하세요</h1>
+            <h1 className="text-xl md:text-2xl font-bold mb-4 px-4">카드를 뽑아보세요</h1>
           )}
           {gameState === GameState.REVEALED && (
             <h1 className="text-xl md:text-2xl font-bold mb-4 px-4">{selectedQuestion}</h1>
@@ -164,7 +163,7 @@ export default function TarotQuestionApp() {
           {gameState === GameState.INITIAL && (
             <button
               onClick={startSpinning}
-              className="w-full py-4 bg-gradient-to-r from-pink-500 to-pink-400 text-white rounded-full text-lg font-semibold shadow-lg hover:from-pink-600 hover:to-pink-500 transition-all transform hover:scale-105 active:scale-95"
+              className="w-full py-4 bg-gradient-to-r from-green-300 via-blue-500 to-indigo-400 text-white rounded-full text-lg font-semibold shadow-lg transition-all transform hover:scale-105 active:scale-95"
             >
               질문 뽑기
             </button>
@@ -174,7 +173,7 @@ export default function TarotQuestionApp() {
             <div className="space-y-3">
               <button
                 onClick={handleReset}
-                className="w-full py-3 bg-gray-700 text-white rounded-full text-sm font-medium hover:bg-gray-600 transition-colors border border-gray-600"
+                className="w-full py-3 bg-gray-900 text-white rounded-full text-sm font-medium transition-colors border border-indigo-300"
               >
                 다시 뽑기
               </button>
@@ -182,9 +181,6 @@ export default function TarotQuestionApp() {
           )}
         </div>
       </div>
-      
-      {/* 하단 인디케이터 */}
-      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-white rounded-full opacity-30"></div>
     </div>
   )
 }

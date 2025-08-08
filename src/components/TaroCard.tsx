@@ -17,7 +17,7 @@ export function TarotCard({
   question = "",
   style,
   onClick,
-  glowEffect = false
+  glowEffect = false,
 }: TarotCardProps) {
   return (
     <div 
@@ -74,7 +74,7 @@ export function TarotCard({
                     ))}
                     <div className="absolute top-1/2 left-1/2 w-0.5 h-0.5 md:w-1 md:h-1 bg-yellow-400 rounded-full transform -translate-x-1/2 -translate-y-1/2"></div>
                   </div>
-                </div>
+                </div> 
               </div>
             </div>
             
@@ -93,7 +93,7 @@ export function TarotCard({
         {/* 카드 앞면 */}
         <div className="absolute inset-0 w-full h-full backface-hidden rotate-y-180">
           <div className="w-full h-full bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl shadow-2xl border-2 border-blue-300 p-2 md:p-3 flex flex-col justify-center items-center text-center">
-            <div className="text-blue-800 text-xs md:text-sm font-medium leading-tight">
+            <div className="text-blue-800 text-xs md:text-sm font-medium leading-tight text-ellipsis overflow-hidden">
               {question}
             </div>
           </div>
