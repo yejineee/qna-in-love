@@ -30,7 +30,7 @@ local(no-database)
 </storage-type>
 
 <tech-stack>
-Typescript, React, Tailwind CSS, Vite
+Typescript, React, Tailwind CSS, Vite, ESLint
 </tech-stack>
 
 PRD must include the following contents:

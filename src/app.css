@@ -2,11 +2,11 @@
   .transform-style-preserve-3d {
     transform-style: preserve-3d;
   }
-  
+
   .backface-hidden {
     backface-visibility: hidden;
   }
-  
+
   .rotate-y-180 {
     transform: rotateY(180deg);
   }
@@ -35,7 +35,7 @@
     --ring: 0 0% 3.9%;
     --radius: 0.5rem;
   }
-  
+
   .dark {
     --background: 0 0% 3.9%;
     --foreground: 0 0% 98%;
@@ -57,7 +57,7 @@
     --input: 0 0% 14.9%;
     --ring: 0 0% 83.1%;
   }
-  
+
   body {
     background-color: black;
     color: white;
