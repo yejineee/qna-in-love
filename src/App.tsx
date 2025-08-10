@@ -18,7 +18,6 @@ export default function TarotQuestionApp() {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [selectedQuestion, setSelectedQuestion] = useState<string>('');
   const [cardRotations, setCardRotations] = useState<number[]>([]);
-  const [spinSpeed, setSpinSpeed] = useState(0);
 
   // 카드 초기 위치 설정
   useEffect(() => {
@@ -36,39 +35,19 @@ export default function TarotQuestionApp() {
     if (gameState !== GameState.INITIAL) return;
 
     setGameState(GameState.SPINNING);
-    setSpinSpeed(15);
 
-    // 스피닝 애니메이션
-    const spinInterval = setInterval(() => {
-      setCardRotations(prev => prev.map(rotation => rotation + spinSpeed));
-    }, 50);
+    // 카드 선택
+    setTimeout(() => {
+      const randomIndex = Math.floor(Math.random() * questions.length);
+      const randomQuestion = questions[randomIndex];
+      setSelectedIndex(3); // 중앙 카드 선택
+      setSelectedQuestion(randomQuestion);
+      setGameState(GameState.SELECTED);
 
-    // 점진적으로 속도 감소
-    const slowDownInterval = setInterval(() => {
-      setSpinSpeed(prev => {
-        const newSpeed = prev * 0.96;
-        if (newSpeed < 0.3) {
-          clearInterval(spinInterval);
-          clearInterval(slowDownInterval);
-
-          // 카드 선택
-          setTimeout(() => {
-            const randomIndex = Math.floor(Math.random() * questions.length);
-            const randomQuestion = questions[randomIndex];
-            setSelectedIndex(3); // 중앙 카드 선택
-            setSelectedQuestion(randomQuestion);
-            setGameState(GameState.SELECTED);
-
-            setTimeout(() => {
-              handleCardSelect(GameState.SELECTED);
-            }, 1000);
-          }, 50);
-
-          return 0;
-        }
-        return newSpeed;
-      });
-    }, 10);
+      setTimeout(() => {
+        handleCardSelect(GameState.SELECTED);
+      }, 1000);
+    }, 2000);
   };
 
   const handleReset = () => {
