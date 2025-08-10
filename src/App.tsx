@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { TarotCard } from './components/TaroCard';
-import { nl2br } from './lib/utils';
 import { questions } from './lib/question';
 import './app.css';
 
@@ -105,11 +104,6 @@ export default function TarotQuestionApp() {
           {gameState === GameState.INITIAL && (
             <h1 className='text-2xl font-bold mb-4 px-4'>카드를 뽑아보세요</h1>
           )}
-          {gameState === GameState.REVEALED && (
-            <h1 className='text-2xl font-bold mb-4 px-4 break-keep'>
-              {nl2br(selectedQuestion)}
-            </h1>
-          )}
         </div>
 
         {/* 카드 영역 */}
@@ -122,7 +116,7 @@ export default function TarotQuestionApp() {
           {gameState === GameState.INITIAL && (
             <button
               onClick={startSpinning}
-              className='w-full py-3 bg-gradient-to-r from-green-300 via-blue-500 to-indigo-400 text-white rounded-full text-lg font-semibold transition-all transform hover:scale-105 active:scale-95'
+              className='w-full py-3 bg-gradient-to-r from-green-300 via-blue-500 to-indigo-400 text-white rounded-full text-lg font-semibold transition-all transform hover:scale-105 active:scale-95 cursor-pointer'
             >
               질문 뽑기
             </button>
@@ -130,7 +124,7 @@ export default function TarotQuestionApp() {
           {gameState === GameState.REVEALED && (
             <button
               onClick={handleReset}
-              className='w-full py-3 bg-gray-900 text-white rounded-full text-lg font-semibold transition-colors border border-indigo-300'
+              className='w-full py-3 bg-gray-900 text-white rounded-full text-lg font-semibold transition-colors border border-amber-300 mt-24 cursor-pointer'
             >
               다시 뽑기
             </button>
