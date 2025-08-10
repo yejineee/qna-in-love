@@ -48,9 +48,7 @@ export function TarotCard({
       )}
 
       <div
-        className={`relative w-full h-full transition-transform duration-1000 transform-style-preserve-3d ${
-          isFlipped ? 'rotate-y-180' : ''
-        }`}
+        className={`relative w-full h-full transition-transform duration-1000 transform-3d ${isFlipped ? 'rotate-y-180' : ''}`}
       >
         {/* 카드 뒷면 */}
         <div className='absolute inset-0 w-full h-full backface-hidden'>
