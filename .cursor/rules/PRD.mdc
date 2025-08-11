@@ -1,5 +1,5 @@
 ---
-description: Product Description
+description: 모든 행동에 적용되는 룰
 globs:
 alwaysApply: false
 ---
