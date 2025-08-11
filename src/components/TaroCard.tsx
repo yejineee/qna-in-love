@@ -33,7 +33,7 @@ export function TarotCard({
       {glowEffect && (
         <>
           <div className='absolute inset-0 bg-yellow-400 rounded-xl blur-xl opacity-60 scale-150 animate-pulse'></div>
-          <div className='absolute inset-0 bg-yellow-300 rounded-xl blur-lg opacity-40 scale-125'></div>
+          <div className='absolute inset-0 bg-blue-300 rounded-xl blur-lg opacity-40 scale-125'></div>
 
           {/* 방사형 광선 효과 */}
           {[0, 45, 90, 135, 180, 225, 270, 315].map((angle, index) => (
@@ -50,7 +50,7 @@ export function TarotCard({
       )}
 
       <div
-        className={`relative w-full h-full transition-transform duration-1000 transform-3d ${isFlipped ? 'rotate-y-180 -translate-y-20 scale-500 md:scale-400' : ''}`}
+        className={`relative w-full h-full transition-transform duration-1000 transform-3d ${isFlipped ? 'rotate-y-180' : ''}`}
       >
         {/* 카드 뒷면 */}
         <div className={`absolute inset-0 w-full h-full backface-hidden`}>
@@ -99,7 +99,7 @@ export function TarotCard({
         </div>
 
         {/* 카드 앞면 */}
-        <div className='absolute inset-0 w-full h-full backface-hidden rotate-y-180'>
+        <div className='absolute inset-0 backface-hidden w-80 h-120 rotate-y-180 -translate-x-32 -translate-y-80 md:-translate-y-60'>
           <div className='w-full h-full bg-gradient-to-br from-amber-50 via-yellow-50 to-amber-100 rounded-xl shadow-2xl border-2 border-amber-200 p-2 md:p-3 flex flex-col justify-center items-center text-center relative overflow-hidden'>
             {/* 종이 질감 효과 */}
             <div className='absolute inset-0 opacity-30'>
@@ -123,30 +123,30 @@ export function TarotCard({
 
             {/* 상단 장식 */}
             <div className='absolute top-2 left-1/2 transform -translate-x-1/2 flex items-center space-x-1'>
-              <div className='w-3 h-0.5 bg-amber-400 opacity-60'></div>
-              <div className='text-amber-300 text-xs'>✦</div>
-              <div className='w-3 h-0.5 bg-amber-400 opacity-60'></div>
+              <div className='w-12 h-0.5 bg-amber-400 opacity-60'></div>
+              <div className='text-amber-500 text-xs'>✦</div>
+              <div className='w-12 h-0.5 bg-amber-400 opacity-60'></div>
             </div>
 
             {/* 메인 컨텐츠 */}
             <div className='relative z-10 flex flex-col items-center justify-center h-full'>
-              <p className='text-amber-900 text-[4px] md:text-[6px] font-semibold leading-relaxed px-1 break-keep'>
+              <p className='text-amber-900 text-xl md:text-2xl font-semibold leading-relaxed px-1 break-keep'>
                 {nl2br(question)}
               </p>
             </div>
 
             {/* 하단 장식 */}
             <div className='absolute bottom-2 left-1/2 transform -translate-x-1/2 flex items-center space-x-1'>
-              <div className='w-3 h-0.5 bg-amber-400 opacity-60'></div>
-              <div className='text-amber-300 text-xs'>✦</div>
-              <div className='w-3 h-0.5 bg-amber-400 opacity-60'></div>
+              <div className='w-12 h-0.5 bg-amber-400 opacity-60'></div>
+              <div className='text-amber-500 text-xs'>✦</div>
+              <div className='w-12 h-0.5 bg-amber-400 opacity-60'></div>
             </div>
 
             {/* 모서리 장식 */}
-            <div className='absolute top-1 left-1 w-2 h-2 border-l-2 border-t-2 border-amber-400 opacity-50 rounded-tl'></div>
-            <div className='absolute top-1 right-1 w-2 h-2 border-r-2 border-t-2 border-amber-400 opacity-50 rounded-tr'></div>
-            <div className='absolute bottom-1 left-1 w-2 h-2 border-l-2 border-b-2 border-amber-400 opacity-50 rounded-bl'></div>
-            <div className='absolute bottom-1 right-1 w-2 h-2 border-r-2 border-b-2 border-amber-400 opacity-50 rounded-br'></div>
+            <div className='absolute top-1 left-1 w-4 h-4 border-l-2 border-t-2 border-amber-400 opacity-50 rounded-tl'></div>
+            <div className='absolute top-1 right-1 w-4 h-4 border-r-2 border-t-2 border-amber-400 opacity-50 rounded-tr'></div>
+            <div className='absolute bottom-1 left-1 w-4 h-4 border-l-2 border-b-2 border-amber-400 opacity-50 rounded-bl'></div>
+            <div className='absolute bottom-1 right-1 w-4 h-4 border-r-2 border-b-2 border-amber-400 opacity-50 rounded-br'></div>
           </div>
         </div>
       </div>
