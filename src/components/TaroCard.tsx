@@ -99,7 +99,7 @@ export function TarotCard({
         </div>
 
         {/* 카드 앞면 */}
-        <div className='absolute inset-0 backface-hidden w-80 h-120 rotate-y-180 -translate-x-32 -translate-y-80 md:-translate-y-60'>
+        <div className='absolute inset-0 backface-hidden w-70 h-100 rotate-y-180  -translate-y-50 md:-translate-y-50 -translate-x-28 -md:translate-x-22'>
           <div className='w-full h-full bg-gradient-to-br from-amber-50 via-yellow-50 to-amber-100 rounded-xl shadow-2xl border-2 border-amber-200 p-2 md:p-3 flex flex-col justify-center items-center text-center relative overflow-hidden'>
             {/* 종이 질감 효과 */}
             <div className='absolute inset-0 opacity-30'>
@@ -118,13 +118,13 @@ export function TarotCard({
             </div>
 
             {/* 장식적 테두리 */}
-            <div className='absolute inset-1 border border-amber-300 rounded-lg opacity-60'></div>
-            <div className='absolute inset-2 border border-amber-200 rounded-md opacity-40'></div>
+            <div className='absolute inset-1 border-2 border-amber-300 rounded-lg opacity-60'></div>
+            <div className='absolute inset-2 border-2 border-amber-200 rounded-md opacity-40'></div>
 
             {/* 상단 장식 */}
             <div className='absolute top-2 left-1/2 transform -translate-x-1/2 flex items-center space-x-1'>
               <div className='w-12 h-0.5 bg-amber-400 opacity-60'></div>
-              <div className='text-amber-500 text-xs'>✦</div>
+              <div className='text-amber-500'>✦</div>
               <div className='w-12 h-0.5 bg-amber-400 opacity-60'></div>
             </div>
 
@@ -138,15 +138,15 @@ export function TarotCard({
             {/* 하단 장식 */}
             <div className='absolute bottom-2 left-1/2 transform -translate-x-1/2 flex items-center space-x-1'>
               <div className='w-12 h-0.5 bg-amber-400 opacity-60'></div>
-              <div className='text-amber-500 text-xs'>✦</div>
+              <div className='text-amber-500'>✦</div>
               <div className='w-12 h-0.5 bg-amber-400 opacity-60'></div>
             </div>
 
             {/* 모서리 장식 */}
-            <div className='absolute top-1 left-1 w-4 h-4 border-l-2 border-t-2 border-amber-400 opacity-50 rounded-tl'></div>
-            <div className='absolute top-1 right-1 w-4 h-4 border-r-2 border-t-2 border-amber-400 opacity-50 rounded-tr'></div>
-            <div className='absolute bottom-1 left-1 w-4 h-4 border-l-2 border-b-2 border-amber-400 opacity-50 rounded-bl'></div>
-            <div className='absolute bottom-1 right-1 w-4 h-4 border-r-2 border-b-2 border-amber-400 opacity-50 rounded-br'></div>
+            <div className='absolute top-1 left-1 w-4 h-4 border-l-4 border-t-4 border-amber-400 opacity-50 rounded-tl'></div>
+            <div className='absolute top-1 right-1 w-4 h-4 border-r-4 border-t-4 border-amber-400 opacity-50 rounded-tr'></div>
+            <div className='absolute bottom-1 left-1 w-4 h-4 border-l-4 border-b-4 border-amber-400 opacity-50 rounded-bl'></div>
+            <div className='absolute bottom-1 right-1 w-4 h-4 border-r-4 border-b-4 border-amber-400 opacity-50 rounded-br'></div>
           </div>
         </div>
       </div>
